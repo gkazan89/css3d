@@ -1,0 +1,63 @@
+body {
+  font-family: Helvetica;
+}
+
+/* separate perspective and transform when dealing with
+multiple elements */
+
+/* 
+
+the smaller the perspective, the 3d is more profound.
+bigger perspective == not as much 3d
+
+*/
+
+.scene {
+  width: 200px;
+  height: 260px;
+  perspective: 600px;
+  margin: 40px 0;
+}
+
+/*.panel {
+  width: 50px;
+  height: 50px;
+  background: blue;
+  margin: 5px;
+  float: left;
+  transform: rotateY(45deg);
+}*/
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+}
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  line-height: 200px;
+}
+
+.card__face--front {
+  background: red;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY(180deg);
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+
+/* perspective origin x and y can adjust the 3d angles */
